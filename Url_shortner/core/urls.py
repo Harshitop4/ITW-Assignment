@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from url_shortner.views import *
+from url_shortner import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
     # path('r/<str:short_code>/', redirect_to_long_url, name='redirect_to_long_url'),
-    # path('r/<str:short_url>/', redirect_to_long_url, name='redirect_to_long_url'),
+    path('<str:pk>',views.finder, name='finder')
 
     
 ]
